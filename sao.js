@@ -50,11 +50,12 @@ module.exports = {
 
         console.log()
 
-        spawn.sync('cd', [folderName], {
+        const run = spawn.sync('npm', ['run', 'dev'], {
             cwd: folderPath,
             stdio: 'inherit',
         })
-        console.log()
-        spawn.sync('npm', ['run', 'dev'], { stdio: 'inherit' })
+        run.stderr.on('data', (data) => {
+            console.log(`${data}`);
+        })
     }
 }
