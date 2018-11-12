@@ -19,6 +19,10 @@ module.exports = {
             message: 'Project name',
             default: ':folderName',
         },
+        description: {
+            message: 'Description',
+            default: 'A mola-nuxt-app'
+        },
         author: {
             type: 'string',
             message: 'Author name',
@@ -37,4 +41,31 @@ module.exports = {
             move('nuxt')
         )
     },
+    post(
+        { npmInstall, gitInit, chalk, isNewFolder, folderName, folderPath },
+        { meta }
+    ) {
+        gitInit()
+        npmInstall()
+
+        const cd = () => {
+            if (isNewFolder) {
+                console.log(`\t${chalk.cyan('cd')} ${folderName}`)
+            }
+        }
+        spawn.sync('npm', ['run', 'lint', '--', '--fix'], {
+            cwd: folderPath,
+            stdio: 'inherit',
+        })
+
+        console.log()
+        console.log(chalk.bold(`\tTo get started:\n`))
+        cd()
+        console.log(`\t ${meta.answers.pm} run dev\n`)
+        console.log(chalk.bold(`  To build & start for production:\n`))
+        cd()
+        console.log(`\t ${meta.answers.pm} run build`)
+        console.log(`\t ${meta.answers.pm} start`)
+        console.log()
+    }
 }
