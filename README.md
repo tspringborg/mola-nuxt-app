@@ -11,4 +11,4 @@ npx github:tspringborg/mola-nuxt-app <my-project>
 ## Features :tada:
 1. [Axios module](https://github.com/nuxt-community/axios-module)
 2. [ESLint](https://eslint.org/) with custom setup
-3. 
+3. [SASS][https://sass-lang.com/]
