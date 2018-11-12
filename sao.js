@@ -17,7 +17,7 @@ module.exports = {
     prompts: {
         name: {
             message: 'Project name',
-            default: ':folderName',
+            default: ':folderName:',
         },
         description: {
             message: 'Description',
