@@ -9,12 +9,11 @@ const targetPath = path.resolve(argv._[0] || '.')
 
 console.log(`> Generating Nuxt.js project in ${targetPath}`)
 
-console.log(sao)
-// // See https://sao.js.org/#/advanced/standalone-cli
-// sao({
-//   template: __dirname,
-//   targetPath
-// }).catch(err => {
-//   console.error(err.name === 'SAOError' ? err.message : err.stack)
-//   process.exit(1)
-// })
+// See https://sao.js.org/#/advanced/standalone-cli
+sao({
+    template: __dirname,
+    targetPath
+}).catch(err => {
+    console.error(err.name === 'SAOError' ? err.message : err.stack)
+    process.exit(1)
+})
