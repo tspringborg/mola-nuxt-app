@@ -50,11 +50,6 @@ module.exports = {
 
         console.log()
 
-        spawn.sync('npm', ['run', 'lint', '--', '--fix'], {
-            cwd: folderPath,
-            stdio: 'inherit',
-        })
-
         spawn.sync('cd', [folderName], {
             cwd: folderPath,
             stdio: 'inherit',
