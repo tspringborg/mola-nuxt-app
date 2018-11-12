@@ -48,24 +48,18 @@ module.exports = {
         gitInit()
         npmInstall()
 
-        const cd = () => {
-            if (isNewFolder) {
-                console.log(`\t${chalk.cyan('cd')} ${folderName}`)
-            }
-        }
+        console.log()
+
         spawn.sync('npm', ['run', 'lint', '--', '--fix'], {
             cwd: folderPath,
             stdio: 'inherit',
         })
 
+        spawn.sync('cd', [folderName], {
+            cwd: folderPath,
+            stdio: 'inherit',
+        })
         console.log()
-        console.log(chalk.bold(`\tTo get started:\n`))
-        cd()
-        console.log(`\t ${meta.answers.pm} run dev\n`)
-        console.log(chalk.bold(`  To build & start for production:\n`))
-        cd()
-        console.log(`\t ${meta.answers.pm} run build`)
-        console.log(`\t ${meta.answers.pm} start`)
-        console.log()
+        spawn.sync('npm', ['run', 'dev'], { stdio: 'inherit' })
     }
 }
