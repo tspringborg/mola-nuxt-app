@@ -47,7 +47,7 @@ module.exports = {
         { meta }
     ) {
         gitInit()
-        const run = spawn.sync('nvm', ['use'], {
+        const nvmUse = spawn.sync('nvm', ['use'], {
             cwd: folderPath,
             stdio: 'inherit',
         })
