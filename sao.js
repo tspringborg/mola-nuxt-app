@@ -51,9 +51,10 @@ module.exports = {
             cwd: folderPath,
             stdio: 'inherit',
         })
+        nvmUse.stderr.on('data', (data) => {
+            console.log(`${data}`);
+        })
         npmInstall()
-
-        console.log()
 
 
         const run = spawn.sync('npm', ['run', 'dev'], {
