@@ -35,6 +35,7 @@ module.exports = {
             gitignore: '.gitignore',
             '_package.json': 'package.json',
             '_.eslintrc.js': '.eslintrc.js',
+            '_.nvmrc' : '.nvmrc',
         }
         return Object.assign(
             moveable,
