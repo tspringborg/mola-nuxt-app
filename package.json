@@ -18,7 +18,7 @@
     },
     "dependencies": {
         "cross-spawn": "^6.0.5",
-        "lodash": "^4.17.4",
+        "lodash": "^4.17.13",
         "minimist": "^1.2.0",
         "sao": "^0.22.5",
         "superb": "^2.0.0"
